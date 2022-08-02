@@ -17,6 +17,8 @@ namespace Shop.BL.Service
      
             CreateMap<EmployeeDTO, Employee>();
             CreateMap<Employee, EmployeeDTO>();
+            CreateMap<EmployeeTypeDTO, EmployeeType>();
+            CreateMap<EmployeeType, EmployeeTypeDTO>();
 
 
         }

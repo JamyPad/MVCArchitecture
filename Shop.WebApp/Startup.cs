@@ -51,9 +51,11 @@ namespace Shop.WebApp
        
             services.AddScoped<IRepository<Employee>, EmployeeRepository>();
             services.AddScoped<IServiceBase<EmployeeDTO>, EmployeeService>();
+            services.AddScoped<IRepository<Employee>, EmployeeRepository>();
+            services.AddScoped<IServiceBase<EmployeeDTO>, EmployeeService>();
 
 
-        
+
             //services.AddScoped<IServiceBase<EmployeeDTO>, EmployeeService();
         }
 

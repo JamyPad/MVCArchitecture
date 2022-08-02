@@ -14,6 +14,6 @@ namespace Shop.Data.Modelss
         public string Address { get; set; }
         public DateTime? EmploymentDate { get; set; }
 
-        public virtual EmployeeType TypeNavigation { get; set; }
+        public virtual EmployeeType EmployeeType { get; set; }
     }
 }

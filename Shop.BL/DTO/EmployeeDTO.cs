@@ -14,5 +14,6 @@ namespace Shop.BL.DTO
         public string Telephone { get; set; }
         public string Address { get; set; }
         public DateTime? EmploymentDate { get; set; }
+        public EmployeeTypeDTO EmployeeType { get; set; }
     }
 }
