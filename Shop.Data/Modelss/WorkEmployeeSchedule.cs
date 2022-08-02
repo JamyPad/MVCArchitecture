@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Shop.BL.Models
+namespace Shop.Data.Modelss
 {
-    public class WorkEmployeeSchedule
+    public partial class WorkEmployeeSchedule
     {
         public long EmployeeId { get; set; }
         public long ShopId { get; set; }

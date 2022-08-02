@@ -5,23 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using  Shop.Data.Repository;
 using Shop.BL.IRepositories;
-using Abp.Domain.Uow;
 
 namespace Shop.BL.Service
 {
-    class ServiceBase<TEntity, TModel> : IServiceBase<TModel>
+    public class ServiceBase<TEntity, TModel> : IServiceBase<TModel>
 
     {
-        protected readonly IUnitOfWork _unitOfWork;
         protected readonly IMapper _mapper;
         protected readonly IRepository<TEntity> _repository;
 
-        public ServiceBase(IMapper mapper, IUnitOfWork unitOfWork, IRepository<TEntity> repository)
+        public ServiceBase(IMapper mapper,IRepository<TEntity> repository)
         {
             _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _repository = repository;
         }
 

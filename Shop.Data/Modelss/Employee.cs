@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Shop.BL.Models
+namespace Shop.Data.Modelss
 {
-    public  class Employee
+    public partial class Employee
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -14,6 +14,6 @@ namespace Shop.BL.Models
         public string Address { get; set; }
         public DateTime? EmploymentDate { get; set; }
 
-        public virtual EmployeeType EmployeeType { get; set; }
+        public virtual EmployeeType TypeNavigation { get; set; }
     }
 }

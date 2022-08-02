@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Shop.Data.Repository.Models;
+using Shop.BL.Models;
 
 namespace Shop.BL.IRepositories
 {

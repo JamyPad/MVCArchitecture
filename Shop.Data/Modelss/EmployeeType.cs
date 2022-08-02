@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Shop.BL.Models
+namespace Shop.Data.Modelss
 {
-    public class EmployeeType
+    public partial class EmployeeType
     {
         public EmployeeType()
         {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Shop.BL.Models
+namespace Shop.Data.Modelss
 {
-    public class Shop
+    public partial class Shop
     {
         public long Id { get; set; }
         public string Name { get; set; }

@@ -1,8 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Shop.Data.Repository.Models;
-
+using Shop.BL.Models;
 
 #nullable disable
 
@@ -21,7 +20,7 @@ namespace Shop.Data.Repository
 
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<EmployeeType> EmployeeTypes { get; set; }
-        public virtual DbSet<Shop.Data.Repository.Models.Shop> Shops { get; set; }
+        public virtual DbSet<Shop.BL.Models.Shop> Shops { get; set; }
         public virtual DbSet<WorkEmployeeSchedule> WorkEmployeeSchedules { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -35,8 +34,6 @@ namespace Shop.Data.Repository
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Modern_Spanish_CI_AS");
-
             modelBuilder.Entity<Employee>(entity =>
             {
                 entity.ToTable("Employee");
@@ -53,7 +50,7 @@ namespace Shop.Data.Repository
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.TypeNavigation)
+                entity.HasOne(d => d.EmployeeType)
                     .WithMany(p => p.Employees)
                     .HasForeignKey(d => d.Type)
                     .OnDelete(DeleteBehavior.SetNull)
@@ -71,7 +68,7 @@ namespace Shop.Data.Repository
                 entity.Property(e => e.Salary).HasColumnType("decimal(18, 2)");
             });
 
-            modelBuilder.Entity<Shop.Data.Repository.Models.Shop>(entity =>
+            modelBuilder.Entity<Shop.BL.Models.Shop>(entity =>
             {
                 entity.ToTable("Shop");
 

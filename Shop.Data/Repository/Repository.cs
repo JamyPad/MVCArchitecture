@@ -22,12 +22,20 @@ namespace Shop.Data.Repository
         }
         public IQueryable<TEntity> All()
         {
+            try
+            {
+                var includeExpressions = this.getAllIncludes();
+                var result = includeExpressions
+                    .Aggregate<Expression<Func<TEntity, object>>, IQueryable<TEntity>>(_context.Set<TEntity>(), (current, expression) => current.Include(expression));
+                return result;
+            }
+            catch (Exception ex)
+            {
 
-            var result2 = _context.Set<TEntity>();
-            var includeExpressions = this.getAllIncludes();
-            var result = includeExpressions
-                .Aggregate<Expression<Func<TEntity, object>>, IQueryable<TEntity>>(_context.Set<TEntity>(), (current, expression) => current.Include(expression));
-            return result;
+                throw;
+            }
+
+     
         }
         public TEntity Update(TEntity entity)
         {
